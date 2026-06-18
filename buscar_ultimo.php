@@ -15,7 +15,7 @@ echo "Conexão realizada com sucesso!";
 
 //RESTO
 
-$sql = "SELECT * FROM dados ORDER BY id, rpm, velocidade DESC LIMIT 1";
+$sql = "SELECT * FROM dados ORDER BY id, rpm, velocidade DESC LIMIT 1"; //ta errado
 $result = $conn->query($sql);
 if ($result->num_rows > 0){
     $row = $result->fetch_assoc();
