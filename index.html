@@ -3,32 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Monitor de Telemetria Digital</title>
-<style>
-
-</style>
+<link rel = "stylesheet" href = "style.css">
 </head>
+
 <body>
-<h1>Dados do Velocímetro</h1>
-<div class="valor">Velocidade: <span id="velocidade">0</span> km/h</div>
-<div class="valor">RPM: <span id="rpm">0</span></div>
+<div class = "dados_vel"><h1>Dados do Velocímetro</h1><br></div>
+<div class="velocidade">Velocidade: <span id="velocidade">0</span> km/h</div>
+<div class="rpm">RPM: <span id="rpm">0</span></div>
+
+<!--FECTCH-->
 <script>
-// Função responsável por consumir a API interna e atualizar a interface de forma assíncrona
 function atualizarDados() {
-// Inconsistência: O endereço mapeado no método fetch aponta para um arquivo inexistente.
-fetch('dados.php')
+fetch('buscar_ultimo.php') //atencao
 .then(response => response.json())
 .then(data => {
 // Certifique-se de que as propriedades do objeto 'data' condizem com o JSON da API.
-document.getElementById('velocidade').innerText =
-data.velocidade;
 document.getElementById('rpm').innerText = data.rpm;
+document.getElementById('velocidade').innerText = data.velocidade;
 })
 .catch(error => console.log("Falha na requisição dos dados:",
 error));
 }
-// Inicialização do ciclo de atualização
+
 atualizarDados();
-setInterval(atualizarDados, 1000); // Ciclo de repetição fixado em 1 segundo.
+setInterval(atualizarDados, 1000);
 </script>
 </body>
 </html>

@@ -1,23 +1,29 @@
 
 <?php
 
+//CONEXAO
 $host = "localhost";
-$dbname = "velocimetro";
+$dbname = "velocidade";
 $username = "root";
 $password = "";
 
 $conn = mysqli_connect($host,$username,$password,$dbname);
 
-if (isset($_POST['velocidade']) && isset($_POST['rpm'])) {
-    $vel = $_POST['velocidade'];
+if ($conn->connect_error) {
+    die("Erro na conexão: " . $conn->connect_error);
+}
+echo "Conexão realizada com sucesso!";
+
+//RESTO
+if (isset($_POST['rpm']) && isset($_POST['velocidade'])) {
     $rpm = $_POST['rpm'];
+    $kph = $_POST['velocidade'];
     
     
 } else {
     echo "Parâmetros incompletos enviados pela ESP";
 }
-// Implemente a instrução SQL INSERT aplicável para a persistência dos dados.
 
-
+$sql = "INSERT INTO dados (id, rpm, velocidade) VALUES (id, rpm, velocidade)";
 $conn->close();
 ?>
