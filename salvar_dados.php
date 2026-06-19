@@ -1,7 +1,6 @@
 
 <?php
 
-//CONEXAO
 $host = "localhost";
 $dbname = "velocidade";
 $username = "root";
@@ -12,7 +11,6 @@ $conn = mysqli_connect($host,$username,$password,$dbname);
 if ($conn->connect_error) {
     die("Erro na conexão: " . $conn->connect_error);
 }
-echo "Conexão realizada com sucesso!";
 
 //RESTO
 if (isset($_POST['rpm']) && isset($_POST['velocidade'])) {

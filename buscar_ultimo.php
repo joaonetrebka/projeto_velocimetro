@@ -15,11 +15,24 @@ echo "Conexão realizada com sucesso!";
 
 //RESTO
 
-$sql = "SELECT * FROM dados ORDER BY id, rpm, velocidade DESC LIMIT 1"; //ta errado
-$result = $conn->query($sql);
-if ($result->num_rows > 0){
+$sql = "SELECT velocidade FROM dados ORDER BY id DESC LIMIT 1"; 
+
+$result = $conn->query($sql); 
+
+if ($result && $result->num_rows > 0) {
     $row = $result->fetch_assoc();
-};
+    echo json_encode(["velocidade" => round($row["velocidade"],1)]);
+
+}
+
+$sql = "SELECT rpm FROM dados ORDER BY id DESC LIMIT 1"; 
+
+$result = $conn->query($sql); 
+
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    echo json_encode(["rpm" => round($row["rpm"],1)]);
+}
 
 $dados = [];
 

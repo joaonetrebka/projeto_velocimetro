@@ -3,13 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <title>Monitor de Telemetria Digital</title>
-<link rel = "stylesheet" href = "style.css">
 </head>
+
+<style>
+    /* Reset e base */
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: radial-gradient(circle, #1a1e29 0%, #0d0f14 100%);
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .dados_vel {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+  
+    .dados_vel h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #ffffff, #a0a5b5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+    }
+  
+
+    .velocidade {
+      background: rgba(255, 255, 255, 0.03);
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 2rem 3rem;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #a0a5b5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      width: 320px;
+      margin-bottom: 2rem;
+    }
+  
+    .velocidade span {
+      font-size: 5rem;
+      font-weight: 800;
+      color: #00d2ff;
+      margin-top: 0.5rem;
+      line-height: 1;
+    }
+  
+    .rpm {
+      background: rgba(255, 255, 255, 0.03);
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 1.5rem 3rem;
+      font-size: 1.2rem;
+      color: #a0a5b5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 320px;
+    }
+  
+    .rpm span {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #ff3366;
+      margin-top: 0.5rem;
+      line-height: 1;
+    }
+  </style>
+  
 
 <body>
 <div class = "dados_vel"><h1>Dados do Velocímetro</h1><br></div>
-<div class="velocidade">Velocidade: <span id="velocidade">0</span> km/h</div>
-<div class="rpm">RPM: <span id="rpm">0</span></div>
+<div class="velocidade" name="velocidade">Velocidade: <span id="velocidade">0</span> km/h</div>
+<div class="rpm" name="rpm">RPM: <span id="rpm">0</span></div>
 
 <!--FECTCH-->
 <script>
